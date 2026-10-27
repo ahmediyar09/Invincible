@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="description" content="Invincible — твой мир кино. Открывай фильмы, сериалы и фантастические истории.">
+
+    <title>Invincible — Мир кино</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="header-inner">
+
+            <a href="#" class="logo" aria-label="Invincible — главная">
+                <span class="logo-icon">I</span>
+                <span>INVINCIBLE<span class="logo-dot">.</span></span>
+            </a>
+
+            <nav class="navigation" id="navigation">
+                <a href="#home" class="nav-link active" data-nav="home">Главная</a>
+                <a href="#catalog" class="nav-link" data-nav="all">Фильмы</a>
+                <a href="#catalog" class="nav-link" data-nav="series">Сериалы</a>
+                <a href="#catalog" class="nav-link" data-nav="favorites">Избранное</a>
+            </nav>
+
+            <div class="header-actions">
+
+                <form class="search-box" id="searchForm" role="search">
+                    <span class="search-icon" aria-hidden="true">⌕</span>
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Поиск фильмов..."
+                        aria-label="Поиск фильмов"
+                        autocomplete="off"
+                    >
+                    <button type="button" id="clearSearch" class="clear-search"
+                            aria-label="Очистить поиск">×</button>
+                </form>
+
+                <button class="profile-button" id="profileButton" aria-label="Профиль">
+                    <span>👤</span>
+                </button>
+
+                <button class="menu-toggle" id="menuToggle"
+                        aria-label="Открыть меню" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="hero-background" id="heroBackground"></div>
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+                <div class="hero-label">
+                    <span class="live-dot"></span>
+                    ВЫБОР РЕДАКЦИИ
+                </div>
+
+                <div class="hero-kicker">МИР ЗА ГРАНЬЮ ВОЗМОЖНОГО</div>
+
+                <h1 id="heroTitle">Дюна: Часть вторая</h1>
+
+                <div class="hero-meta">
+                    <span class="hero-rating">★ <span id="heroRating">8.5</span></span>
+                    <span id="heroYear">2024</span>
+                    <span id="heroType">Фильм</span>
+                    <span id="heroDuration">166 мин.</span>
+                </div>
+
+                <p class="hero-description" id="heroDescription">
+                    Пол продолжает свой эпический путь. Судьба целой вселенной
+                    зависит от решений, которые ему предстоит принять.
+                </p>
+
+                <div class="hero-buttons">
+                    <button class="button button-primary" id="heroWatch">
+                        <span>▶</span> Смотреть
+                    </button>
+
+                    <button class="button button-secondary" id="heroDetails">
+                        Подробнее <span>↗</span>
+                    </button>
+                </div>
+
+                <div class="hero-pagination" id="heroPagination"></div>
+            </div>
+
+            <div class="hero-side-label">INVINCIBLE ORIGINAL EXPERIENCE</div>
+        </section>
+
+        <!-- QUICK STATS -->
+        <section class="stats-strip container">
+            <div class="stat-item">
+                <span class="stat-icon">◈</span>
+                <div>
+                    <strong>Большая коллекция</strong>
+                    <span>Фильмы и сериалы</span>
+                </div>
+            </div>
+
+            <div class="stat-item">
+                <span class="stat-icon">✦</span>
+                <div>
+                    <strong>Лучшие истории</strong>
+                    <span>Отборные подборки</span>
+                </div>
+            </div>
+
+            <div class="stat-item">
+                <span class="stat-icon">◉</span>
+                <div>
+                    <strong>Твой выбор</strong>
+                    <span>Избранное в одном месте</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATALOG -->
+        <section class="catalog-section container" id="catalog">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-eyebrow">ТВОЯ СЛЕДУЮЩАЯ ИСТОРИЯ</span>
+                    <h2 id="catalogTitle">Исследуй каталог<span>.</span></h2>
+                    <p class="section-description" id="catalogDescription">
+                        Найди историю, которая захватит тебя с первой минуты.
+                    </p>
+                </div>
+
+                <div class="catalog-count" id="catalogCount">12 TITLES</div>
+            </div>
+
+            <!-- CATEGORY TABS -->
+            <div class="category-tabs" id="categoryTabs">
+                <button class="category-tab active" data-category="all">Все</button>
+                <button class="category-tab" data-category="movie">Фильмы</button>
+                <button class="category-tab" data-category="series">Сериалы</button>
+                <button class="category-tab" data-category="sci-fi">Фантастика</button>
+                <button class="category-tab" data-category="action">Боевики</button>
+                <button class="category-tab" data-category="favorites">♥ Избранное</button>
+            </div>
+
+            <!-- SEARCH RESULTS AND MOVIES -->
+            <div class="search-status" id="searchStatus" aria-live="polite"></div>
+
+            <div class="movie-grid" id="movieGrid"></div>
+
+            <div class="empty-state hidden" id="emptyState">
+                <div class="empty-icon">⌕</div>
+                <h3>Ничего не найдено</h3>
+                <p>Попробуй изменить запрос или выбрать другую категорию.</p>
+                <button class="button button-primary" id="resetFilters">
+                    Сбросить фильтры
+                </button>
+            </div>
+
+            <div class="catalog-footer">
+                <span id="resultsInfo">Подборка Invincible</span>
+                <button class="button button-outline" id="showAllButton">
+                    Показать всё <span>↓</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- POPULAR -->
+        <section class="slider-section container" id="popularSection">
+            <div class="slider-heading">
+                <div>
+                    <span class="section-eyebrow">НЕ ПРОПУСТИ</span>
+                    <h2>Популярное сейчас<span>.</span></h2>
+                </div>
+
+                <div class="slider-controls">
+                    <button class="slider-arrow" data-scroll="popularRow" data-direction="-1"
+                            aria-label="Прокрутить назад">←</button>
+                    <button class="slider-arrow" data-scroll="popularRow" data-direction="1"
+                            aria-label="Прокрутить вперёд">→</button>
+                </div>
+            </div>
+
+            <div class="movie-row" id="popularRow"></div>
+        </section>
+
+        <!-- NEW RELEASES -->
+        <section class="slider-section container" id="newSection">
+            <div class="slider-heading">
+                <div>
+                    <span class="section-eyebrow">СВЕЖИЕ ИСТОРИИ</span>
+                    <h2>Новинки<span>.</span></h2>
+                </div>
+
+                <div class="slider-controls">
+                    <button class="slider-arrow" data-scroll="newRow" data-direction="-1"
+                            aria-label="Прокрутить назад">←</button>
+                    <button class="slider-arrow" data-scroll="newRow" data-direction="1"
+                            aria-label="Прокрутить вперёд">→</button>
+                </div>
+            </div>
+
+            <div class="movie-row" id="newRow"></div>
+        </section>
+
+        <!-- SCI-FI -->
+        <section class="slider-section container" id="sciFiSection">
+            <div class="slider-heading">
+                <div>
+                    <span class="section-eyebrow">ЗА ПРЕДЕЛАМИ РЕАЛЬНОСТИ</span>
+                    <h2>Фантастика<span>.</span></h2>
+                </div>
+
+                <div class="slider-controls">
+                    <button class="slider-arrow" data-scroll="sciFiRow" data-direction="-1"
+                            aria-label="Прокрутить назад">←</button>
+                    <button class="slider-arrow" data-scroll="sciFiRow" data-direction="1"
+                            aria-label="Прокрутить вперёд">→</button>
+                </div>
+            </div>
+
+            <div class="movie-row" id="sciFiRow"></div>
+        </section>
+
+        <!-- SUBSCRIBE BANNER -->
+        <section class="promo-section container">
+            <div class="promo-glow"></div>
+
+            <div class="promo-content">
+                <span class="section-eyebrow">ТВОЙ МИР. ТВОИ ПРАВИЛА.</span>
+                <h2>Истории, которые<br>остаются с тобой<span>.</span></h2>
+                <p>
+                    Сохраняй любимое, открывай новые миры и создавай собственную
+                    коллекцию кино.
+                </p>
+                <button class="button button-primary" id="promoButton">
+                    Открыть каталог <span>↗</span>
+                </button>
+            </div>
+
+            <div class="promo-art" aria-hidden="true">
+                <div class="promo-ring ring-one"></div>
+                <div class="promo-ring ring-two"></div>
+                <div class="promo-orb">I</div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+
+                <div class="footer-brand">
+                    <a href="#home" class="logo">
+                        <span class="logo-icon">I</span>
+                        <span>INVINCIBLE<span class="logo-dot">.</span></span>
+                    </a>
+
+                    <p>
+                        Твоя территория кино.<br>
+                        Открывай новые истории каждый день.
+                    </p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Навигация</h4>
+                    <a href="#home">Главная</a>
+                    <a href="#catalog">Каталог</a>
+                    <a href="#popularSection">Популярное</a>
+                    <a href="#newSection">Новинки</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Коллекция</h4>
+                    <a href="#catalog" data-footer-category="movie">Фильмы</a>
+                    <a href="#catalog" data-footer-category="series">Сериалы</a>
+                    <a href="#catalog" data-footer-category="sci-fi">Фантастика</a>
+                    <a href="#catalog" data-footer-category="favorites">Избранное</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Информация</h4>
+                    <a href="#" id="aboutLink">О проекте</a>
+                    <a href="#" id="privacyLink">Конфиденциальность</a>
+                    <a href="#" id="termsLink">Условия использования</a>
+                    <a href="mailto:hello@example.com">Обратная связь</a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <span>© <span id="currentYear"></span> Invincible. Концепт онлайн-кинотеатра.</span>
+                <span class="footer-note">СОЗДАНО ДЛЯ ЛЮБИТЕЛЕЙ КИНО <span>♥</span></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- VIDEO MODAL -->
+    <div class="modal" id="videoModal" aria-hidden="true">
+        <div class="modal-backdrop" data-close-modal></div>
+
+        <div class="modal-dialog" role="dialog" aria-modal="true"
+             aria-labelledby="modalTitle">
+
+            <button class="modal-close" id="closeModal" aria-label="Закрыть">×</button>
+
+            <div class="player-container" id="playerContainer">
+                <video id="videoPlayer" controls playsinline preload="metadata"></video>
+
+                <div class="player-placeholder" id="playerPlaceholder">
+                    <div class="player-placeholder-glow"></div>
+                    <div class="player-logo">INVINCIBLE<span>.</span></div>
+                    <div class="player-play-icon">▶</div>
+                    <h3 id="placeholderTitle">Добро пожаловать в кино</h3>
+                    <p id="placeholderMessage">
+                        Добавь ссылку на видео, чтобы начать просмотр.
+                    </p>
+                    <button class="button button-primary" id="placeholderAction">
+                        Смотреть трейлер
+                    </button>
+                </div>
+            </div>
+
+            <div class="modal-info">
+                <div class="modal-main-info">
+                    <div class="modal-kicker">INVINCIBLE CINEMA</div>
+                    <h2 id="modalTitle">Название фильма</h2>
+
+                    <div class="modal-meta">
+                        <span class="hero-rating">★ <span id="modalRating">8.5</span></span>
+                        <span id="modalYear">2024</span>
+                        <span id="modalType">Фильм</span>
+                        <span id="modalGenre">Фантастика</span>
+                    </div>
+
+                    <p id="modalDescription"></p>
+                </div>
+
+                <button class="favorite-modal-button" id="modalFavorite">
+                    ♡ <span>В избранное</span>
+                </button>
+            </div>
+
+            <div class="modal-notice" id="modalNotice">
+                Демонстрационный шаблон. Для полноценного просмотра добавь
+                собственные видеофайлы или ссылки на разрешённые источники.
+            </div>
+        </div>
+    </div>
+
+    <!-- PROFILE / INFO MODAL -->
+    <div class="small-modal" id="infoModal" aria-hidden="true">
+        <div class="modal-backdrop" data-close-info></div>
+
+        <div class="small-modal-card" role="dialog" aria-modal="true"
+             aria-labelledby="infoModalTitle">
+            <button class="modal-close" id="closeInfoModal" aria-label="Закрыть">×</button>
+            <div class="small-modal-icon">I<span>.</span></div>
+            <h2 id="infoModalTitle">Invincible</h2>
+            <div id="infoModalContent"></div>
+            <button class="button button-primary" id="closeInfoAction">Понятно</button>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
